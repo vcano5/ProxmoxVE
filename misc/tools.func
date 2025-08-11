@@ -953,6 +953,8 @@ function fetch_and_deploy_gh_release() {
       case "$filename_candidate" in
       $pattern)
         asset_url="$u"
+        asset_url=$(echo "$asset_url" | tr -d '\r\n')
+        asset_url="${asset_url%/}"
         break
         ;;
       esac
@@ -1041,6 +1043,8 @@ function fetch_and_deploy_gh_release() {
       case "$filename_candidate" in
       $pattern)
         asset_url="$u"
+        asset_url=$(echo "$asset_url" | tr -d '\r\n')
+        asset_url="${asset_url%/}"
         break
         ;;
       esac
